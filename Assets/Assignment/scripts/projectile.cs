@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed = 10f;
+    public float deadZoneX = 11f;
+    public float deadZoneY = -7f;
+    Rigidbody rigidbody;
     void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        transform.Translate(0, speed * Time.deltaTime, 0);
+        if (transform.position.x > deadZoneX || transform.position.y < deadZoneY)
+        {
+            Destroy(gameObject);
+        }
     }
 }
