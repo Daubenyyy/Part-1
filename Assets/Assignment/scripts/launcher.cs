@@ -6,6 +6,7 @@ using UnityEngine.VFX;
 
 public class launcher : MonoBehaviour
 {
+    //varibles
     public GameObject projectileprefab;
     public Transform spawner;
     public float SpawnRate = 2f;
@@ -20,7 +21,7 @@ public class launcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer < SpawnRate)
+        if(timer < SpawnRate)//adds time between projectile spawns
         {
             timer += Time.deltaTime;
         }
@@ -32,6 +33,7 @@ public class launcher : MonoBehaviour
 
     void spawnProjectile()
     {
+        //offsets the projectiles to spawn in random places
         float leftSide = transform.position.x  - spawnOffsetX;
         float rightSide = transform.position.x + spawnOffsetX;
         float northSide = transform.position.y - spawnOffsetY;
